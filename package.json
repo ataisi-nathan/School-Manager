@@ -6,12 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "auth": "^1.6.20",
     "bcrypt": "^6.0.0",
+    "drizzle-orm": "^0.45.2",
     "heroicons": "^2.2.0",
+    "jose": "^6.2.3",
+    "lucide-react": "^1.21.0",
     "next": "16.2.3",
     "next-auth": "^4.24.14",
     "postgres": "^3.4.9",
@@ -21,9 +28,11 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
     "tailwindcss": "^4",
