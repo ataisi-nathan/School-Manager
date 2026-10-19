@@ -8,6 +8,13 @@
       "when": 1786620125600,
       "tag": "0000_jittery_martin_li",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786836652808,
+      "tag": "0001_modern_yellowjacket",
+      "breakpoints": true
     }
   ]
 }

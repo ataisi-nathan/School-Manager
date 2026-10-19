@@ -7,17 +7,19 @@ interface FeatureCardProps {
 
 export default function FeatureCard({ title, description, badge, icon }: FeatureCardProps) {
   return (
-    <div className="group relative bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/50 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10">
+    <div className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-100">
       {badge && (
-        <span className="absolute top-4 right-4 text-[10px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+        <span className="absolute right-4 top-4 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
           {badge}
         </span>
       )}
-      <div className="w-12 h-12 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-5 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-100 bg-indigo-50 text-indigo-600 transition-all duration-300 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white">
         {icon}
       </div>
-      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">{title}</h3>
-      <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
+      <h3 className="mb-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-indigo-600">
+        {title}
+      </h3>
+      <p className="text-sm leading-relaxed text-slate-600">{description}</p>
     </div>
   );
 }

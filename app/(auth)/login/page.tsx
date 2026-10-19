@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Loader2, Lock, Mail, ShieldCheck } from 'lucide-react';
+import { loginAction } from '@/app/actions/login';
 
 export default function Login() {
   const router = useRouter();
@@ -20,22 +21,19 @@ export default function Login() {
     const password = formData.get('password') as string;
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      // 👈 Call the Server Action directly instead of fetch('/api/auth/login')
+      const result = await loginAction({ email, password });
 
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok) {
-        router.push('/dashboard');
+      if (result?.error) {
+        setErrorMessage(result.error);
+        setIsLoading(false);
       } else {
-        setErrorMessage(data.message || 'Invalid email or password. Please try again.');
+        // Successful login triggers redirect from Server Action or router push fallback
+        router.push('/dashboard');
+        router.refresh();
       }
     } catch {
-      setErrorMessage('A network error occurred. Please try again later.');
-    } finally {
+      setErrorMessage('An unexpected error occurred. Please try again.');
       setIsLoading(false);
     }
   }
