@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "School Manager",
+  title: "SchoolOS.ai",
   description: "Manage your school's operations efficiently with our comprehensive school management system.",
 };
 
