@@ -14,8 +14,13 @@ export default async function DashboardLayout({
     redirect('/login');
   }
 
+  const dashboardUser = {
+    ...user,
+    schoolName: user.schoolName ?? '',
+  };
+
   return (
-    <DashboardShell user={user}>
+    <DashboardShell user={dashboardUser}>
       {children}
     </DashboardShell>
   );
